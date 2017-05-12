@@ -1,0 +1,60 @@
+{
+  "info": {
+    "colName": "education",
+    "type": "String",
+    "index": "3"
+  },
+  "points": [
+    {
+      "x1": "HS-grad",
+      "x2": null,
+      "y": "10501"
+    },
+    {
+      "x1": "Some-college",
+      "x2": null,
+      "y": "7291"
+    },
+    {
+      "x1": "Bachelors",
+      "x2": null,
+      "y": "5355"
+    },
+    {
+      "x1": "Masters",
+      "x2": null,
+      "y": "1723"
+    },
+    {
+      "x1": "Assoc-voc",
+      "x2": null,
+      "y": "1382"
+    },
+    {
+      "x1": "11th",
+      "x2": null,
+      "y": "1175"
+    },
+    {
+      "x1": "Assoc-acdm",
+      "x2": null,
+      "y": "1067"
+    },
+    {
+      "x1": "10th",
+      "x2": null,
+      "y": "933"
+    },
+    {
+      "x1": "7th-8th",
+      "x2": null,
+      "y": "646"
+    },
+    {
+      "x1": "Prof-school",
+      "x2": null,
+      "y": "576"
+    }
+  ],
+  "viewType": "Graph"
+}

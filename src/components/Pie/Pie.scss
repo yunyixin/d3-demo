@@ -1,0 +1,73 @@
+.svg {
+  font-family: "Segoe UI", sans-serif;
+
+  .graph {
+
+    .title {
+      text-anchor: middle;
+      font-size: 0.9em;
+      fill: #2b2b2b;
+    }
+
+    .part {
+      opacity: 0.8;
+      transition-duration: 0.25s;
+
+      circle, .line, text {
+        visibility: hidden;
+      }
+
+    }
+
+    .part:hover, .hover {
+      opacity: 1;
+      transform: scale(1.2);
+
+      circle, .line, text {
+        visibility: visible;
+      }
+
+      circle {
+        stroke: #fff;
+        stroke-width: 1px;
+      }
+
+      .line {
+        fill: none;
+        stroke-width: 1px;
+      }
+
+      text {
+        fill: #000;
+        text-anchor: middle;
+        pointer-events: none;
+        font-size: 0.8em;
+      }
+    }
+
+  }
+
+  .legend {
+
+    rect {
+      opacity: 0.8;
+    }
+
+    text {
+      font-size: .95em;
+      cursor: default;
+    }
+  }
+
+  .legend:hover, .hover {
+    rect {
+      opacity: 1;
+    }
+
+    text {
+      font-weight: 600;
+    }
+  }
+
+}
+

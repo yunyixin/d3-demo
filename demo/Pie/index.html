@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="">
+<head>
+  <title>visualize.js [Pie]</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    div:first-child {
+      display: flex;
+      justify-content: center;
+    }
+
+    #numeric, #string {
+      width: 500px;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <div id="numeric"></div>
+  <div id="string"></div>
+</div>
+
+<script src="http://172.27.8.192:9001/vendor.js"></script>
+<script src="http://172.27.8.192:9001/app.js"></script>
+<script>
+  (function () {
+
+    d3.json('/Pie/Pie_Numeric.json', function (data) {
+      var pie = new ForceGraph.Pie({
+        dom: document.querySelector('#numeric'),
+        data: data,
+        title: data.info.colName
+      });
+      pie.render();
+    });
+
+    d3.json('/Pie/Pie_String.json', function (data) {
+      var pie = new ForceGraph.Pie({
+        dom: document.querySelector('#string'),
+        data: data,
+        title: data.info.colName
+      });
+      pie.render();
+    });
+
+  })();
+</script>
+</body>
+</html>
