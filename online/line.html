@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="../dist/app-58b23f9c01d31f0a809b.min.css"/>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">-->
+    <title>Line</title>
+</head>
+<body>
+<div id="line"></div>
+<script src="../dist/vendor-42f65cfd7b4580e2fe42.min.js"></script>
+<script src="../dist/app-42f65cfd7b4580e2fe42.min.js"></script>
+<script>
+    (function () {
+        d3.json('../demo/data/subclass.json', function (error, data) {
+            if (error) {
+                console.log(error);
+            }
+            ForceGraph.testGraph(document.querySelector('#line'), data);
+        });
+    })()
+</script>
+</body>
+</html>

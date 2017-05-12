@@ -24,8 +24,8 @@
 
 // global objects in browser
 
-if (__DEVELOPMENT__) {
-  window.d3 = require('d3');
-  window.cloud = require('d3-cloud');
-}
+// if (__DEVELOPMENT__)
+
+window.d3 = require('d3');
+window.cloud = require('d3-cloud');
 window.ForceGraph = require('./components');
