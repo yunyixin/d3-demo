@@ -5,7 +5,7 @@ const definePlugin = require('webpack/lib/DefinePlugin');
 const providePlugin = require('webpack/lib/ProvidePlugin');
 const commonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');  // use for static assets
+// const CopyWebpackPlugin = require('copy-webpack-plugin');  // use for static assets
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
@@ -26,7 +26,7 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, './dist/' + process.env.ENVIRONMENT),
+    path: path.resolve(__dirname, './dist'),
     filename: '[name]-[hash].min.js',
     sourceMapFilename: '[name]-[hash].map',
     chunkFilename: '[id]-[chunkhash].js'
