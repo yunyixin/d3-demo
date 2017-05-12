@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="">
+<head>
+  <title>[Scatter] - visualize.js</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div id="playground"></div>
+<script src="http://172.27.8.192:9001/vendor.js"></script>
+<script src="http://172.27.8.192:9001/app.js"></script>
+<script>
+  d3.json('/Scatter/ScatterDiagram.json', function (json) {
+    var scatter = new ForceGraph.SmartPlot({
+      dom: document.querySelector('#playground'),
+      data: {
+        points: json.resultPoints,
+        xAxis: json.xAxis,
+        yAxis: json.yAxis
+      },
+      isLinked: false,
+      isSigned: true,
+      width: 500,
+      height: 500,
+      margin: {
+        top: 25, right: 15, bottom: 60, left: 45
+      }
+    });
+    scatter.render();
+  });
+</script>
+</body>
+</html>

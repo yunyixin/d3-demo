@@ -1,0 +1,51 @@
+.container {
+
+  .grids {
+    path {
+      stroke: #949494;
+      stroke-width: 0.5;
+      stroke-dasharray: 2, 2;
+    }
+  }
+
+  .graph, .interaction {
+    .components {
+      .hover {
+        stroke: #383838;
+        stroke-width: 1;
+      }
+
+      .circle {
+        fill: none;
+        stroke: #383838;
+        stroke-width: 1;
+      }
+
+      .label {
+        font-size: .9rem;
+      }
+    }
+
+    .masks {
+      visibility: visible;
+    }
+  }
+
+  .legends .legend {
+    text {
+      font-size: .8rem;
+    }
+  }
+
+}
+
+.tooltip {
+  position: absolute;
+  padding: 3px 5px;
+  border-radius: 2.5px;
+  background-color: #000;
+  opacity: .8;
+  font-size: .9rem;
+  color: #fff;
+  pointer-events: none;
+}

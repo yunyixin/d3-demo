@@ -7,3 +7,6 @@ export * from './WordCloud';
 export * from './GeographicMap';
 export * from './WordCloud3D';
 export * from './Pie';
+export * from './SmartPlot';
+export * from './Histogram';
+export * from './Area';

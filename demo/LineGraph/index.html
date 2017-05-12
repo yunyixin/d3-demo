@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="">
+<head>
+  <title>[LineGraph] - visualize.js</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #playground {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+<div id="playground">
+  <div id="line-chart"></div>
+  <div id="line-clustered"></div>
+  <div id="line-marked-chart"></div>
+  <div id="line-stacked"></div>
+  <div id="line-stacked100"></div>
+</div>
+<script src="http://172.27.8.192:9001/vendor.js"></script>
+<script src="http://172.27.8.192:9001/app.js"></script>
+<script>
+  d3.json('/LineGraph/LineChart.json', function (json) {
+    var line = new ForceGraph.SmartPlot({
+      dom: document.querySelector('#line-chart'),
+      data: {
+        points: json.xPoints.map((x, i) => ({x, y: json.yPoints[i]})),
+        xAxis: json.xAxis
+      },
+      isLinked: true,
+      width: 300,
+      height: 300,
+      margin: {
+        top: 25, right: 15, bottom: 60, left: 45
+      }
+    });
+    line.render();
+  });
+
+  d3.json('/LineGraph/LineMarkedChart.json', function (json) {
+    var line = new ForceGraph.SmartPlot({
+      dom: document.querySelector('#line-marked-chart'),
+      data: {
+        points: json.xPoints.map((x, i) => ({x, y: json.yPoints[i]})),
+        xAxis: json.xAxis
+      },
+      isLinked: true,
+      isSigned: true,
+      width: 300,
+      height: 300,
+      margin: {
+        top: 25, right: 15, bottom: 60, left: 45
+      }
+    });
+    line.render();
+  });
+
+  //  d3.json('/LineGraph/LineChart.json', function (json) {
+  //    var line = new ForceGraph.SmartPlot({
+  //      dom: document.querySelector('#line-chart'),
+  //      data: {
+  //        points: json.xPoints.map((x, i) => ({x, y: json.yPoints[i]})),
+  //        xAxis: json.xAxis
+  //      },
+  //      isLinked: true,
+  //      width: 300,
+  //      height: 300,
+  //      margin: {
+  //        top: 25, right: 15, bottom: 60, left: 45
+  //      }
+  //    });
+  //    line.render();
+  //  });
+</script>
+</body>
+</html>

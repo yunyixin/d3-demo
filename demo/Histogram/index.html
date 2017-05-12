@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>visualize.js demo page</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<p>histogram</p>
+<div id="histogram" style="width: 370px; height: 300px"></div>
+<script src="http://172.27.8.192:9001/vendor.js"></script>
+<script src="http://172.27.8.192:9001/app.js"></script>
+<script type="text/javascript">
+  d3.json("/Histogram/Histogram_Numeric.json", function (error, resp) {
+    var histogram = new ForceGraph.Histogram({
+      data: resp,
+      dom: document.getElementById('histogram')
+    });
+
+    histogram.render();
+  });
+</script>
+</body>
+</html>
