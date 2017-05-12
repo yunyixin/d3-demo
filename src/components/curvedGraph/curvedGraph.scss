@@ -1,0 +1,31 @@
+.links {
+  fill: none;
+  stroke: #bbb;
+  // stroke-opacity: 0.6;
+}
+
+.links text {
+  fill: #000;
+  stroke: #000;
+  stroke-width: 0.2;
+  text-anchor: middle;
+}
+
+.nodes circle {
+  cursor: move;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.nodes text {
+  cursor: move;
+  fill: #000;
+  stroke: #000;
+  stroke-width: 1;
+  text-anchor: middle;
+}
+
+.fixed{
+  stroke-width: 16px !important;
+  stroke-opacity: 0.6;
+}

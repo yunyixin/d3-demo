@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">-->
+    <title>Map</title>
+</head>
+<body>
+<div id="chengdu"></div>
+<script src="http://172.27.8.192:9001/vendor.js"></script>
+<script src="http://172.27.8.192:9001/app.js"></script>
+<script>
+    (function () {
+        d3.json('/data/chengdu.json', function (error, data) {
+            if (error) {
+                console.log(error);
+            }
+            d3.json('/data/rangeChengdu.json', function (error, rangeData) {
+                if (error) {
+                    console.log(error);
+                }
+                const custom = {
+                    rangeData,
+                    width: 1000,
+                    height: 800,
+                    center: [104,30.8],
+                    scaleNumber: 18000,
+                    colorFrom: '#b0dd23',  // 淺黃
+                    colorTo: '#008000' // green
+                };
+
+                ForceGraph.GeographicMap('#chengdu', data, custom);
+            });
+
+        });
+    })()
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Bubble</title>
+</head>
+<body>
+<div id="bubble"></div>
+</body>
+<script src="http://172.27.8.192:9001/vendor.js"></script>
+<script src="http://172.27.8.192:9001/app.js"></script>
+<script>
+    d3.json("/data/bubble.json", function(error,data) {
+        if (error) {
+            console.log(error);
+        }
+        ForceGraph.BubbleChart('#bubble', data)
+    });
+</script>
+</html>

@@ -1,0 +1,42 @@
+{
+  "name": "network-graph",
+  "version": "1.0.0",
+  "description": "for decrible relationship od food and risk",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development concurrently \"webpack-dev-server --config webpack.config.js --inline --watch --colors\" \"node bin/server.js\"",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "eslint src"
+  },
+  "author": "yunyi",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^4.7.3",
+    "d3-cloud": "^1.2.4",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-core": "^6.24.0",
+    "babel-eslint": "^7.2.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-latest": "^6.24.0",
+    "concurrently": "^3.4.0",
+    "css-loader": "^0.27.3",
+    "eslint": "^3.18.0",
+    "eslint-loader": "^1.7.0",
+    "eslint-plugin-react": "^6.10.3",
+    "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^4.5.1",
+    "open-browser-webpack-plugin": "0.0.5",
+    "postcss-loader": "^1.3.3",
+    "sass-loader": "^6.0.3",
+    "serve-favicon": "^2.4.1",
+    "serve-static": "^1.12.1",
+    "style-loader": "^0.16.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
+  }
+}

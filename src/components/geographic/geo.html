@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>中国地图</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="geo.js"></script>
+</head>
+<body>
+<div id="geographic"></div>
+<div id="province"></div>
+<div id="city"></div>
+</body>
+<script>
+    const generator = function(type) {
+        var width = 1000;
+        var height = 800;
+        var center = [107,36];
+        var scaleNumber = 850;
+        switch(type) {
+            case 'city': width = 650; height = 550; center = [104,30.8]; scaleNumber = 18000; break;
+            case 'province': width = 800; height = 600; center = [104,30]; scaleNumber = 3000; break;
+            // case 'country'
+            default : break;
+        }
+        return {
+            width: width,
+            height: height,
+            center: center,
+            scaleNumber: scaleNumber
+        }
+    };
+
+    d3.json("china.json", function(error,data) {
+        geographic('#geographic', data, generator('country'))
+    });
+    d3.json("sichuan.json", function(error,data) {
+        geographic('#province',data, generator('province'))
+    });
+    d3.json("chengdu.json", function(error,data) {
+        geographic('#city', data, generator('city'))
+    });
+</script>
+</html>

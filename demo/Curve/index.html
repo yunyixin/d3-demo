@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">-->
+    <title>Curve</title>
+</head>
+<body>
+<div id="curve"></div>
+<script src="http://172.27.8.192:9001/vendor.js"></script>
+<script src="http://172.27.8.192:9001/app.js"></script>
+<script>
+    (function () {
+        d3.json('/data/subclass.json', function (error, data) {
+            if (error) {
+                console.log(error);
+            }
+            ForceGraph.curvedGraph(document.querySelector('#curve'), data);
+        });
+    })()
+</script>
+</body>
+</html>

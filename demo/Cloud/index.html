@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cloud</title>
+</head>
+<body>
+<div id="cloud"></div>
+<script src="http://172.27.8.192:9001/vendor.js"></script>
+<script src="http://172.27.8.192:9001/app.js"></script>
+<script type="text/javascript">
+    d3.json("/data/cloud.json", function(error, data) {
+        if(error) {
+            console.log(error);
+        }
+
+        ForceGraph.WordCloud('#cloud', data);
+    });
+</script>
+</body>
+</html>

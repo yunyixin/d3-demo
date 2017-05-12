@@ -1,0 +1,59 @@
+{
+  "queryInfo": {
+    "totalRows": "10"
+  },
+  "resultset": [
+    [
+      "粮食加工品",
+      6.25
+    ],
+    [
+      "食用油、油脂及其制品",
+      1
+    ],
+    [
+      "调味品",
+      3.75
+    ],
+    [
+      "肉制品",
+      5.46
+    ],
+    [
+      "乳制品",
+      4.65
+    ],
+    [
+      "饮料",
+      3.68
+    ],
+    [
+      "方便食品",
+      6.5
+    ],
+    [
+      "饼干",
+      6.25
+    ],
+    [
+      "冷冻饮品",
+      2.75
+    ],
+    [
+      "速冻食品",
+      4.5
+    ]
+  ],
+  "metadata": [
+    {
+      "colIndex": 0,
+      "colType": "String",
+      "colName": "category_name"
+    },
+    {
+      "colIndex": 1,
+      "colType": "Numeric",
+      "colName": "unqualified_rate"
+    }
+  ]
+}

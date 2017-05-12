@@ -1,0 +1,22 @@
+.links line {
+  stroke: #000;
+  stroke-opacity: 0.6;
+}
+
+.links text {
+  text-anchor: middle;
+}
+
+.nodes circle {
+  cursor: move;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.nodes text {
+  cursor: move;
+  fill: #000;
+  stroke: #000;
+  stroke-width: 1;
+  text-anchor: middle;
+}
