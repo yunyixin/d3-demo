@@ -1,5 +1,5 @@
-# Network Graph
-this is for test of food's risk
+# d3-demo
+this is several demo charts of d3
 
 #Installation
    $ npm install  or yarn

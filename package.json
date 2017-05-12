@@ -1,7 +1,7 @@
 {
-  "name": "network-graph",
+  "name": "d3-demo",
   "version": "1.0.0",
-  "description": "for decrible relationship od food and risk",
+  "description": "this is several demo charts of d3",
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development concurrently \"webpack-dev-server --config webpack.config.js --inline --watch --colors\" \"node bin/server.js\"",
