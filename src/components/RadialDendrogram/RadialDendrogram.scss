@@ -1,0 +1,28 @@
+
+.node circle {
+  fill: green;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.nodeInternal circle {
+  fill: #555;
+}
+
+.nodeInternal text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #555;
+  stroke-opacity: 0.4;
+  stroke-width: 1.5px;
+}
+
+.linkValue {
+  fill: red;
+  opacity: 0.6;
+}

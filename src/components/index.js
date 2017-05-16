@@ -10,3 +10,4 @@ export * from './Pie';
 export * from './SmartPlot';
 export * from './Histogram';
 export * from './Area';
+export * from './RadialDendrogram';
