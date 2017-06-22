@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="">
+<head>
+    <title>visualize.js</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #heatmap {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+<div id="heatmap"></div>
+
+<script src="http://172.27.8.192:9001/vendor.js"></script>
+<script src="http://172.27.8.192:9001/app.js"></script>
+<script>
+    (function () {
+        d3.tsv('heatmap.tsv', function (d) {
+            return {
+                day: +d.day,
+                hour: +d.hour,
+                value: +d.value
+            };
+        }, function (error, data) {
+            if (error) {
+                throw error;
+            }
+            // console.log('data', data);
+            var heatmap = new ForceGraph.HeatMap({
+                dom: document.getElementById('heatmap'),
+                data: data,
+            });
+            heatmap.render();
+        });
+
+    })();
+</script>
+</body>
+</html>
