@@ -24,6 +24,7 @@ export class HeatMap {
     const {data, colors} = this.props;
 
     const colorScale = d3.scaleQuantile()
+      // 9 colors
       .domain([0, 8], d3.max(data, function (d) {
         return d.value;
       }))
@@ -65,6 +66,39 @@ export class HeatMap {
 
     cards.exit().remove();
 
+    //add legend
+    const legend = svg.selectAll('.legend')
+      .data([0].concat(colorScale.quantiles()), function (d) {
+        return d;
+      })
+      .enter().append('g')
+      .attr('class', 'legend');
+    const legendWidth = gridSize * 2;
+    const legendHeight = 8 * gridSize;
+
+
+    legend.append('rect')
+      .attr('x', function (d, i) {
+        return legendWidth * i;
+      })
+      .attr('y', legendHeight)
+      .attr('width', legendWidth)
+      .attr('height', gridSize / 2)
+      .style('fill', function (d, i) {
+        return colors[i];
+      });
+
+    legend.append("text")
+      .attr("class", styles.legendText)
+      .text(function (d) {
+        return `≥ ${Math.round(d)}`;
+      })
+      .attr("x", function (d, i) {
+        return legendWidth * i;
+      })
+      .attr("y", legendHeight + gridSize);
+
+    legend.exit().remove();
   }
 
   render() {
@@ -72,7 +106,6 @@ export class HeatMap {
     const margin = {top: 20, right: 20, bottom: 70, left: 40};
     const innerWidth = dom.clientWidth - margin.left;
     const gridSize = Math.floor(innerWidth / 24);
-    // const legendElementWidth = gridSize * 2;
 
 
     const svg = d3.select(dom).append('svg')
