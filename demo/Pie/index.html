@@ -29,7 +29,7 @@
   (function () {
 
     d3.json('/Pie/Pie_Numeric.json', function (data) {
-      var pie = new ForceGraph.Pie({
+      var pie = new Visualize.Pie({
         dom: document.querySelector('#numeric'),
         data: data,
         title: data.info.colName
@@ -38,7 +38,7 @@
     });
 
     d3.json('/Pie/Pie_String.json', function (data) {
-      var pie = new ForceGraph.Pie({
+      var pie = new Visualize.Pie({
         dom: document.querySelector('#string'),
         data: data,
         title: data.info.colName

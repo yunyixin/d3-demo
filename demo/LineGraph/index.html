@@ -23,7 +23,7 @@
 <script src="http://172.27.8.192:9001/app.js"></script>
 <script>
   d3.json('/LineGraph/LineChart.json', function (json) {
-    var line = new ForceGraph.SmartPlot({
+    var line = new Visualize.SmartPlot({
       dom: document.querySelector('#line-chart'),
       data: {
         points: json.xPoints.map((x, i) => ({x, y: json.yPoints[i]})),
@@ -40,7 +40,7 @@
   });
 
   d3.json('/LineGraph/LineMarkedChart.json', function (json) {
-    var line = new ForceGraph.SmartPlot({
+    var line = new Visualize.SmartPlot({
       dom: document.querySelector('#line-marked-chart'),
       data: {
         points: json.xPoints.map((x, i) => ({x, y: json.yPoints[i]})),
@@ -58,7 +58,7 @@
   });
 
   //  d3.json('/LineGraph/LineChart.json', function (json) {
-  //    var line = new ForceGraph.SmartPlot({
+  //    var line = new Visualize.SmartPlot({
   //      dom: document.querySelector('#line-chart'),
   //      data: {
   //        points: json.xPoints.map((x, i) => ({x, y: json.yPoints[i]})),

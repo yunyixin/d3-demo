@@ -14,7 +14,7 @@
 <script src="http://172.27.8.192:9001/app.js"></script>
 <script type="text/javascript">
     d3.json("/data/WordCloud3D.json", function(error, resp) {
-        const wordCloud3D = new ForceGraph.WordCloude3D({
+        const wordCloud3D = new Visualize.WordCloude3D({
             data: resp,
             dom: document.getElementById('wordCloud3D'),
             deep: 10

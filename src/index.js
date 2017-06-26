@@ -28,4 +28,4 @@
 
 window.d3 = require('d3');
 window.cloud = require('d3-cloud');
-window.ForceGraph = require('./components');
+window.Visualize = require('./components');

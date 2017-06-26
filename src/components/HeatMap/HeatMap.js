@@ -88,15 +88,15 @@ export class HeatMap {
         return colors[i];
       });
 
-    legend.append("text")
-      .attr("class", styles.legendText)
+    legend.append('text')
+      .attr('class', styles.legendText)
       .text(function (d) {
         return `≥ ${Math.round(d)}`;
       })
-      .attr("x", function (d, i) {
+      .attr('x', function (d, i) {
         return legendWidth * i;
       })
-      .attr("y", legendHeight + gridSize);
+      .attr('y', legendHeight + gridSize);
 
     legend.exit().remove();
   }

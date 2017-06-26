@@ -12,7 +12,7 @@
 <script src="http://172.27.8.192:9001/app.js"></script>
 <script>
   d3.json('/Scatter/ScatterDiagram.json', function (json) {
-    var scatter = new ForceGraph.SmartPlot({
+    var scatter = new Visualize.SmartPlot({
       dom: document.querySelector('#playground'),
       data: {
         points: json.resultPoints,
