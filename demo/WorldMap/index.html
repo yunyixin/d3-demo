@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="">
+<head>
+    <title>visualize.js</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #worldmap {
+            width: 1000px;
+            height: 650px;
+        }
+    </style>
+</head>
+<body>
+<div id="worldmap"></div>
+
+<script src="http://172.27.8.192:9001/vendor.js"></script>
+<script src="http://172.27.8.192:9001/app.js"></script>
+<script>
+    (function () {
+        d3.json('world-data.json',  function (error, worldJson) {
+            if (error) {
+                throw error;
+            }
+            console.log('worldmap data', worldJson);
+            var worldmap = new Visualize.WorldMap({
+                dom: document.getElementById('worldmap'),
+                mapJson: worldJson
+            });
+            worldmap.render();
+        });
+
+    })();
+</script>
+</body>
+</html>

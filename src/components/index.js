@@ -12,3 +12,4 @@ export * from './Histogram';
 export * from './Area';
 export * from './RadialDendrogram';
 export * from './HeatMap';
+export * from './WorldMap';

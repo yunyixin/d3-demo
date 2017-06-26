@@ -66,7 +66,7 @@ export class HeatMap {
 
     cards.exit().remove();
 
-    //add legend
+    // add legend
     const legend = svg.selectAll('.legend')
       .data([0].concat(colorScale.quantiles()), function (d) {
         return d;
@@ -74,14 +74,14 @@ export class HeatMap {
       .enter().append('g')
       .attr('class', 'legend');
     const legendWidth = gridSize * 2;
-    const legendHeight = 8 * gridSize;
+    const height = 7 * gridSize + gridSize; // heatmap height and padding
 
 
     legend.append('rect')
       .attr('x', function (d, i) {
         return legendWidth * i;
       })
-      .attr('y', legendHeight)
+      .attr('y', height)
       .attr('width', legendWidth)
       .attr('height', gridSize / 2)
       .style('fill', function (d, i) {
@@ -96,7 +96,7 @@ export class HeatMap {
       .attr('x', function (d, i) {
         return legendWidth * i;
       })
-      .attr('y', legendHeight + gridSize);
+      .attr('y', height + gridSize);
 
     legend.exit().remove();
   }
