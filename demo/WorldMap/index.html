@@ -19,16 +19,22 @@
 <script src="http://172.27.8.192:9001/app.js"></script>
 <script>
     (function () {
-        d3.json('world-data.json',  function (error, worldJson) {
+        d3.json('world-topo-min.json',  function (error, worldJson) {
             if (error) {
                 throw error;
             }
-            console.log('worldmap data', worldJson);
-            var worldmap = new Visualize.WorldMap({
-                dom: document.getElementById('worldmap'),
-                mapJson: worldJson
-            });
-            worldmap.render();
+
+            d3.csv('country-capitals.csv', function (error, capitals) {
+                // console.log('worldmap data', worldJson, capitals);
+
+                var worldmap = new Visualize.WorldMap({
+                    dom: document.getElementById('worldmap'),
+                    mapJson: worldJson,
+                    capitals
+                });
+                worldmap.render();
+            })
+
         });
 
     })();

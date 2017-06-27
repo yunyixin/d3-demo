@@ -29,4 +29,5 @@
 window.d3 = require('d3');
 window.cloud = require('d3-cloud');
 window.topojson = require('topojson');
+window.d3Tip = require('d3-tip');
 window.Visualize = require('./components');

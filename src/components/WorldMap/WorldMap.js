@@ -27,6 +27,51 @@ export class WorldMap {
     d3.select('svg').attr('height', width / 2);
   }
 
+  addCapitals(svg, projection) {
+    const {capitals} = this.props;
+
+    const capitalsGroup = svg.append('g')
+      .attr('class', 'gpoint');
+
+
+    const point = capitalsGroup.append('g');
+    const geo = function (d) {
+      return projection(d.CapitalLongitude, d.CapitalLatitude);
+    };
+
+    point.selectAll('.point')
+      .data(capitals)
+      .enter()
+      .append('svg:circle')
+      .attr('cx', function (d) {
+        if (d.CapitalLongitude < 0) {
+          return 0;
+        }
+        return geo(d)[0];
+      })
+      .attr('cy', function (d) {
+        return geo(d)[1];
+      })
+      .attr('class', styles.point)
+      .attr('r', 1.5);
+
+    point.selectAll('text')
+      .data(capitals)
+      .append('text')
+      .attr('x', function (d) {
+        return projection(d.CapitalLongitude, d.CapitalLatitude)[0] + 2;
+      })
+      .attr('y', function (d) {
+        return projection(d.CapitalLongitude, d.CapitalLatitude)[1] + 2;
+      })
+      .attr('class', styles.pointText)
+      .text(function (d) {
+        return d.CapitalName;
+      });
+
+
+  }
+
   render() {
     const {dom, mapJson, width, height} = this.props;
     let map = {};
@@ -67,7 +112,8 @@ export class WorldMap {
       .attr('class', styles.d3Tip)
       // .offset([-10, 0])
       .html(function (d) {
-        return `<strong>Number:</strong><span style='color: green'>${d.id}</span>`;
+        return `<strong>Id：</strong><span style='color: green'>${d.id}</span><br><strong>Country：</strong><span style='color: green'>${d.properties.name}</span>`;
+
       });
     svg.call(tip);
 
@@ -99,6 +145,7 @@ export class WorldMap {
           .style('stroke-width', 0.3);
       });
 
-
+    // add some capitals from external csv file
+    // this.addCapitals(svg, projection);
   }
 }
