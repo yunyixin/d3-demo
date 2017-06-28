@@ -31,57 +31,104 @@ export class WorldMap {
     const {capitals} = this.props;
 
     const capitalsGroup = svg.append('g')
-      .attr('class', 'gpoint');
+      .attr('class', 'capitals');
 
+    const geoLocation = capitals.map((d) => ({
+      ...d,
+      geo: projection([d.CapitalLongitude, d.CapitalLatitude])
+    }));
 
-    const point = capitalsGroup.append('g');
-    const geo = function (d) {
-      return projection(d.CapitalLongitude, d.CapitalLatitude);
-    };
-
-    point.selectAll('.point')
-      .data(capitals)
+    capitalsGroup.append('g')
+      .selectAll('.point')
+      .data(geoLocation)
       .enter()
       .append('svg:circle')
+      .attr('class', styles.point)
       .attr('cx', function (d) {
-        if (d.CapitalLongitude < 0) {
-          return 0;
-        }
-        return geo(d)[0];
+        console.log('d', d.geo);
+        return d.geo[0];
       })
       .attr('cy', function (d) {
-        return geo(d)[1];
+        return d.geo[1];
       })
-      .attr('class', styles.point)
-      .attr('r', 1.5);
+      .attr('r', 8);
 
-    point.selectAll('text')
-      .data(capitals)
+
+    capitalsGroup.append('g')
+      .selectAll('.pointText')
+      .data(geoLocation)
+      .enter()
       .append('text')
+      .attr('class', styles.pointText)
       .attr('x', function (d) {
-        return projection(d.CapitalLongitude, d.CapitalLatitude)[0] + 2;
+        return d.geo[0] + 2;
       })
       .attr('y', function (d) {
-        return projection(d.CapitalLongitude, d.CapitalLatitude)[1] + 2;
+        return d.geo[1] + 2;
       })
-      .attr('class', styles.pointText)
       .text(function (d) {
         return d.CapitalName;
       });
 
+    return capitalsGroup;
+  }
 
+  addMeteorite(svg, projection) {
+    const {meteorite} = this.props;
+
+    const meteoriteGroup = svg.append('g')
+      .attr('class', 'meteorites');
+
+    const meteoriteLoc = meteorite.features.map(d => ({
+      ...d,
+      loc: projection([d.properties.reclong, d.properties.reclat])
+    }));
+
+
+    meteoriteGroup.selectAll('path')
+      .data(meteoriteLoc)
+      .enter()
+      .append('circle')
+      .attr('cx', function (d) {
+        return d.loc[0];
+      })
+      .attr('cy', function (d) {
+        return d.loc[1];
+      })
+      .attr('r', function (d) {
+        const range = 718750 / 2 / 2;
+
+        if (d.properties.mass <= range) {
+          return 2;
+        } else if (d.properties.mass <= range * 2) {
+          return 10;
+        } else if (d.properties.mass <= range * 3) {
+          return 20;
+        } else if (d.properties.mass <= range * 20) {
+          return 30;
+        } else if (d.properties.mass <= range * 100) {
+          return 40;
+        }
+
+        return 50;
+      })
+      .attr('opacity', 0.6)
+      .attr('fill', 'red');
+
+    return meteoriteGroup;
   }
 
   render() {
     const {dom, mapJson, width, height} = this.props;
     let map = {};
+    let circles = {};
 
     // color function
     const colors = d3.scaleOrdinal(d3.schemeCategory20b);
 
     const zoomed = function () {
       map.attr('transform', `translate(${d3.event.transform.x},${d3.event.transform.y})scale(${d3.event.transform.k})`);
-      // info.attr('transform', `translate(${d3.event.translate})scale(${d3.event.scale})`);
+      circles.attr('transform', `translate(${d3.event.transform.x},${d3.event.transform.y})scale(${d3.event.transform.k})`);
     };
 
     const zoom = d3.zoom()
@@ -146,6 +193,8 @@ export class WorldMap {
       });
 
     // add some capitals from external csv file
-    // this.addCapitals(svg, projection);
+    circles = this.addMeteorite(svg, projection); // this.addCapitals(svg, projection);
+
+
   }
 }

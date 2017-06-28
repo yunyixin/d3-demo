@@ -24,13 +24,13 @@
                 throw error;
             }
 
-            d3.csv('country-capitals.csv', function (error, capitals) {
+            d3.json('meteorite-data.json', function (error, meteorite) {
                 // console.log('worldmap data', worldJson, capitals);
 
                 var worldmap = new Visualize.WorldMap({
                     dom: document.getElementById('worldmap'),
                     mapJson: worldJson,
-                    capitals
+                    meteorite
                 });
                 worldmap.render();
             })
