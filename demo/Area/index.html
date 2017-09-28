@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="">
 <head>
-  <title>visualize.js demo page</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    #areaTest {
-      width: 600px;
-      height: 420px;
-    }
-  </style>
+    <title>visualize.js demo page</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #areaTest {
+            width: 600px;
+            height: 420px;
+        }
+    </style>
 </head>
 <body>
 <div id="areaTest">
 </div>
-<script src="http://172.27.8.192:9001/vendor.js"></script>
-<script src="http://172.27.8.192:9001/app.js"></script>
+<script src="http://192.168.38.129:9001/vendor.js"></script>
+<script src="http://192.168.38.129:9001/app.js"></script>
 <script>
   (function () {
     d3.json('/Area/Area_Numeric.json', function (error, data) {
@@ -31,6 +31,30 @@
       });
       area.render();
     });
+
+    const initial = function (arr) {
+      const cc = arr.map(item => {
+        const str_arr = item[2].split(' ');
+        // console.log('arr', str_arr);
+        // except first one
+        return {
+          type: str_arr[2],
+          text: str_arr[4]
+        }
+      });
+
+      console.log('format', cc)
+
+      console.log('str', d3.csvFormat(cc))
+    };
+
+    d3.csv('./118.csv', function (error, data) {
+      if (error) {
+        console.log('118 type', error);
+      }
+      initial(data)
+    })
+
   })()
 </script>
 </body>

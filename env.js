@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
-    host: '172.27.8.192',
+    host: '192.168.38.129',
     port: 9000
   }
 };

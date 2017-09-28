@@ -69,7 +69,7 @@ module.exports = {
       favicon: path.resolve(__dirname, './static/favicon.jpg')
     }),
     new openBrowserPlugin({
-      url: 'http://172.27.8.192:9000'
+      url: 'http://192.168.38.129:9000'
     }),
     new commonsChunkPlugin({
       name: ['app', 'vendor'],
